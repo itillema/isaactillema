@@ -1,6 +1,6 @@
 /*
  * Design tokens — Isaac Tillema portfolio.
- * Glassmorphic identity: cool palette (cyan → indigo → teal), near-black base.
+ * Glassmorphic identity: cool palette (mint → cyan → sky-cyan), near-black base.
  * All component code references these via Tailwind utilities mapped in app/globals.css @theme.
  */
 
@@ -18,15 +18,19 @@
   --color-text-soft: hsl(220 18% 86%);
   --color-muted: hsl(220 14% 65%);
 
-  /* Gradient stops (cyan → indigo → teal) */
-  --grad-1: hsl(190 95% 65%);
-  --grad-2: hsl(232 90% 70%);
-  --grad-3: hsl(165 80% 65%);
+  /* Gradient stops (mint → cyan → sky-cyan) */
+  --grad-1: hsl(165 80% 65%);
+  --grad-2: hsl(190 95% 65%);
+  --grad-3: hsl(205 90% 72%);
   --gradient-accent: linear-gradient(135deg, var(--grad-1), var(--grad-2), var(--grad-3));
 
   /* Solid accent aliases */
   --color-accent: var(--grad-2);
-  --color-accent-soft: hsl(232 90% 70% / 0.12);
+  --color-accent-soft: hsl(190 95% 65% / 0.12);
+
+  /* Link colors — blue for body-text hyperlinks (accessibility convention) */
+  --color-link: hsl(232 90% 70%);
+  --color-link-soft: hsl(232 90% 70% / 0.12);
 
   /* Borders */
   --color-border: hsl(220 20% 96% / 0.08);
@@ -34,7 +38,7 @@
 
   /* Shadow / glow */
   --shadow-card: 0 10px 30px -15px hsl(225 50% 2% / 0.7);
-  --shadow-glow: 0 0 40px hsl(232 90% 70% / 0.18);
+  --shadow-glow: 0 0 40px hsl(190 95% 65% / 0.18);
 
   /* Typography (next/font sets --font-geist-*; these are fallbacks) */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;

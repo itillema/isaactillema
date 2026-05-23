@@ -31,7 +31,7 @@ export function About() {
               href="https://www.officeofexperience.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:underline"
+              className="text-link hover:underline"
             >
               The Office of Experience
             </a>

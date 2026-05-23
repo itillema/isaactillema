@@ -11,7 +11,7 @@ export function PostCard({ post }: { post: BlogPostMeta }) {
         >
           {post.date}
         </time>
-        <h2 className="text-text group-hover:text-accent text-xl font-semibold transition-colors">
+        <h2 className="text-text group-hover:text-link text-xl font-semibold transition-colors">
           {post.title}
         </h2>
         {post.description && <p className="text-muted text-sm">{post.description}</p>}

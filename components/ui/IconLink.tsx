@@ -25,7 +25,7 @@ export function IconLink({
       <a
         href={href}
         aria-label={label}
-        className={cn("hover:text-accent transition-colors", className)}
+        className={cn("hover:text-link transition-colors", className)}
       >
         {label}
       </a>

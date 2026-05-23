@@ -10,7 +10,7 @@ export const mdxComponents: MDXComponents = {
       href={href}
       target={href?.startsWith("http") ? "_blank" : undefined}
       rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="text-accent hover:underline"
+      className="text-link hover:underline"
       {...rest}
     />
   ),

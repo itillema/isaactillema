@@ -28,7 +28,7 @@ export function FeaturedProjects() {
             <p className="text-text-soft">
               I&apos;m putting together write-ups of a few of my favorite engagements. In
               the meantime,{" "}
-              <a href="#contact" className="text-accent hover:underline">
+              <a href="#contact" className="text-link hover:underline">
                 reach out
               </a>{" "}
               and I&apos;ll walk you through them directly.

@@ -62,7 +62,7 @@ export function OtherProjects() {
                     href={project.external}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-link transition-colors"
                   >
                     {project.title}
                   </a>

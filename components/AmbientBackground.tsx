@@ -20,7 +20,7 @@ export function AmbientBackground() {
         className="absolute top-[35vh] -right-40 h-[55vw] w-[55vw] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, hsl(232 90% 70% / 0.28), transparent 70%)",
+            "radial-gradient(circle, hsl(205 90% 72% / 0.28), transparent 70%)",
           filter: "blur(120px)",
         }}
       />

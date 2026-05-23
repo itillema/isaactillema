@@ -8,7 +8,7 @@ export function EmailRail() {
     >
       <a
         href={`mailto:${bio.email}`}
-        className="text-muted hover:text-accent font-mono text-xs tracking-widest transition-colors [writing-mode:vertical-rl]"
+        className="text-muted hover:text-link font-mono text-xs tracking-widest transition-colors [writing-mode:vertical-rl]"
       >
         {bio.email}
       </a>
