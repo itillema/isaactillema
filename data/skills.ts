@@ -1,16 +1,20 @@
 import type { SkillGroup } from "@/lib/types";
 
+/**
+ * Curated set of ~10 skills surfaced in the About section.
+ * Full skill breakdown lives on the resume PDF.
+ */
 export const skills: SkillGroup[] = [
   {
-    category: "Quality & Testing",
-    items: ["Test Automation", "Test Strategy", "Regression Coverage", "Bug Triage"],
-  },
-  {
-    category: "Tools",
-    items: ["Cypress", "Playwright", "Postman", "Jira", "SQL"],
-  },
-  {
     category: "Languages",
-    items: ["TypeScript", "JavaScript", "SQL"],
+    items: ["TypeScript", "C#", "Python", "SQL"],
+  },
+  {
+    category: "Automation",
+    items: ["Playwright", "Selenium", "Appium"],
+  },
+  {
+    category: "DevOps & Cloud",
+    items: ["Docker", "AWS", "Azure DevOps"],
   },
 ];

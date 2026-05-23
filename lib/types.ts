@@ -54,6 +54,22 @@ export interface SkillGroup {
   items: string[];
 }
 
+export interface Education {
+  id: string;
+  school: string;
+  schoolDetail?: string;
+  degree: string;
+  emphasis?: string;
+  location: string;
+  date: string;
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  abbreviation?: string;
+}
+
 export interface BlogPostMeta {
   slug: string;
   title: string;

@@ -1,24 +1,10 @@
 import type { FeaturedProject, Project } from "@/lib/types";
 
-export const featuredProjects: FeaturedProject[] = [
-  {
-    id: "placeholder-featured-1",
-    title: "Placeholder Featured Project",
-    description:
-      "Short description of a meaningful project. The content pass will replace this with a real project you'd like to highlight.",
-    tech: ["TypeScript", "Next.js", "Playwright"],
-    github: undefined,
-    external: undefined,
-    image: undefined,
-    order: 1,
-  },
-];
+/**
+ * Featured + other projects.
+ * Empty by design until Isaac selects which engagements to highlight.
+ * When populated, both sections render automatically (see FeaturedProjects + OtherProjects).
+ */
+export const featuredProjects: FeaturedProject[] = [];
 
-export const otherProjects: Project[] = [
-  {
-    id: "placeholder-other-1",
-    title: "Placeholder Project",
-    description: "One-line description of a smaller project or experiment.",
-    tech: ["TypeScript"],
-  },
-];
+export const otherProjects: Project[] = [];

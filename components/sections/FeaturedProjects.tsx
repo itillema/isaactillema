@@ -10,7 +10,34 @@ import { cn } from "@/lib/cn";
 export function FeaturedProjects() {
   const sorted = [...featuredProjects].sort((a, b) => a.order - b.order);
   const reduce = useReducedMotion();
-  if (sorted.length === 0) return null;
+
+  if (sorted.length === 0) {
+    return (
+      <section
+        id="projects"
+        aria-labelledby="featured-heading"
+        className="scroll-mt-(--header-h) py-(--space-section)"
+      >
+        <ScrollReveal>
+          <SectionHeading id="featured-heading" number="04">
+            Selected Work
+          </SectionHeading>
+        </ScrollReveal>
+        <ScrollReveal>
+          <div className="glass mx-auto max-w-2xl p-8 text-center">
+            <p className="text-text-soft">
+              I&apos;m putting together write-ups of a few of my favorite engagements. In
+              the meantime,{" "}
+              <a href="#contact" className="text-accent hover:underline">
+                reach out
+              </a>{" "}
+              and I&apos;ll walk you through them directly.
+            </p>
+          </div>
+        </ScrollReveal>
+      </section>
+    );
+  }
 
   return (
     <section
@@ -19,8 +46,8 @@ export function FeaturedProjects() {
       className="scroll-mt-(--header-h) py-(--space-section)"
     >
       <ScrollReveal>
-        <SectionHeading id="featured-heading" number="03">
-          Some Things I&apos;ve Built
+        <SectionHeading id="featured-heading" number="04">
+          Selected Work
         </SectionHeading>
       </ScrollReveal>
       <ul className="space-y-24">

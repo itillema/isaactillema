@@ -21,7 +21,7 @@ export function OtherProjects() {
       className="scroll-mt-(--header-h) py-(--space-section)"
     >
       <ScrollReveal>
-        <SectionHeading id="other-heading" number="04">
+        <SectionHeading id="other-heading" number="05">
           Other Noteworthy Projects
         </SectionHeading>
       </ScrollReveal>

@@ -22,7 +22,7 @@ export function Hero() {
       </ScrollReveal>
       <ScrollReveal delay={0.3}>
         <h2 className="text-muted mt-2 text-(length:--fs-display) leading-[1.05] font-bold tracking-tight">
-          I build things for the web.
+          I architect quality at scale.
         </h2>
       </ScrollReveal>
       <ScrollReveal delay={0.4}>
