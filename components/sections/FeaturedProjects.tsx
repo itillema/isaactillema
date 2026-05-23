@@ -44,7 +44,7 @@ export function FeaturedProjects() {
                 className={cn(
                   "md:col-span-7",
                   reversed ? "md:col-start-6" : "md:col-start-1",
-                  "bg-surface border-border aspect-video rounded border",
+                  "glass aspect-video",
                 )}
                 aria-hidden="true"
               />
@@ -59,7 +59,7 @@ export function FeaturedProjects() {
               >
                 <p className="text-accent font-mono text-xs">Featured Project</p>
                 <h3 className="text-text text-2xl font-semibold">{project.title}</h3>
-                <div className="bg-surface border-border text-muted rounded border p-5 shadow-(--shadow-card)">
+                <div className="glass text-text-soft p-5 shadow-(--shadow-card)">
                   <p>{project.description}</p>
                 </div>
                 <ul

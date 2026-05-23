@@ -15,18 +15,18 @@ export function Hero() {
       <ScrollReveal delay={0.2}>
         <h1
           id="hero-heading"
-          className="text-text text-(length:--fs-display) leading-tight font-bold tracking-tight"
+          className="bg-gradient-accent bg-clip-text text-(length:--fs-display) leading-[1.05] font-bold tracking-tight text-transparent"
         >
           {bio.name}.
         </h1>
       </ScrollReveal>
       <ScrollReveal delay={0.3}>
-        <h2 className="text-muted mt-2 text-(length:--fs-display) leading-tight font-bold tracking-tight">
+        <h2 className="text-muted mt-2 text-(length:--fs-display) leading-[1.05] font-bold tracking-tight">
           I build things for the web.
         </h2>
       </ScrollReveal>
       <ScrollReveal delay={0.4}>
-        <p className="text-muted mt-6 max-w-xl text-base md:text-lg">{bio.intro}</p>
+        <p className="text-text-soft mt-6 max-w-xl text-base md:text-lg">{bio.intro}</p>
       </ScrollReveal>
       <ScrollReveal delay={0.5}>
         <div className="mt-10">

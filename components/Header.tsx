@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "bg-bg/90 fixed inset-x-0 top-0 z-30 backdrop-blur transition-transform duration-300 ease-out",
+        "glass-strong fixed inset-x-0 top-0 z-30 transition-transform duration-300 ease-out",
         scrolled ? "h-(--header-h-compact) shadow-md" : "h-(--header-h)",
         hidden ? "-translate-y-full" : "translate-y-0",
       )}

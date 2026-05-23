@@ -28,7 +28,7 @@ export function OtherProjects() {
       <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((project) => (
           <ScrollReveal key={project.id}>
-            <li className="bg-surface border-border hover:-translate-y-1 flex h-full flex-col gap-4 rounded border p-6 shadow-(--shadow-card) transition-transform duration-200">
+            <li className="glass hover:-translate-y-1 flex h-full flex-col gap-4 p-6 shadow-(--shadow-card) transition-transform duration-200">
               <div className="flex items-start justify-between">
                 <Folder className="text-accent" size={28} />
                 <div className="flex items-center gap-3">
