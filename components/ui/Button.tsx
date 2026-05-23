@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex items-center justify-center gap-2 border border-accent text-accent font-mono text-sm px-5 py-3 rounded-(--radius) transition-all duration-200 hover:bg-accent-soft hover:shadow-(--shadow-glow) focus-visible:bg-accent-soft";
+  "inline-flex items-center justify-center gap-2 border border-accent text-accent font-mono text-sm px-5 py-3 rounded-(--radius-pill) transition-all duration-200 hover:bg-accent-soft hover:shadow-(--shadow-glow) focus-visible:bg-accent-soft";
 
 type ButtonAsButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   as?: "button";

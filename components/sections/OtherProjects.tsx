@@ -85,7 +85,7 @@ export function OtherProjects() {
           <button
             type="button"
             onClick={() => setShowAll((s) => !s)}
-            className="border-accent text-accent hover:bg-accent-soft font-mono text-sm px-5 py-3 border rounded transition-colors"
+            className="border-accent text-accent hover:bg-accent-soft font-mono text-sm px-5 py-3 border rounded-(--radius-pill) transition-colors"
           >
             {showAll ? "Show Less" : "Show More"}
           </button>

@@ -6,16 +6,14 @@ import { MobileMenu } from "@/components/MobileMenu";
 import { cn } from "@/lib/cn";
 
 export function Header() {
-  const { direction, scrollY } = useScrollDirection(8);
+  const { scrollY } = useScrollDirection(8);
   const scrolled = scrollY > 40;
-  const hidden = direction === "down" && scrolled;
 
   return (
     <header
       className={cn(
-        "glass-strong fixed inset-x-0 top-0 z-30 transition-transform duration-300 ease-out",
+        "glass-strong fixed inset-x-0 top-0 z-30",
         scrolled ? "h-(--header-h-compact) shadow-md" : "h-(--header-h)",
-        hidden ? "-translate-y-full" : "translate-y-0",
       )}
     >
       <div className="mx-auto flex h-full w-full max-w-(--max-w-content) items-center justify-between px-6 md:px-12">

@@ -1,6 +1,6 @@
 /*
  * Design tokens — Isaac Tillema portfolio.
- * Glassmorphic identity: cool palette (cyan → indigo → violet), near-black base.
+ * Glassmorphic identity: cool palette (cyan → indigo → teal), near-black base.
  * All component code references these via Tailwind utilities mapped in app/globals.css @theme.
  */
 
@@ -18,10 +18,10 @@
   --color-text-soft: hsl(220 18% 86%);
   --color-muted: hsl(220 14% 65%);
 
-  /* Gradient stops (cyan → indigo → violet) */
+  /* Gradient stops (cyan → indigo → teal) */
   --grad-1: hsl(190 95% 65%);
   --grad-2: hsl(232 90% 70%);
-  --grad-3: hsl(280 90% 72%);
+  --grad-3: hsl(165 80% 65%);
   --gradient-accent: linear-gradient(135deg, var(--grad-1), var(--grad-2), var(--grad-3));
 
   /* Solid accent aliases */
@@ -58,6 +58,7 @@
 
   /* Shape & layout */
   --radius: 0.75rem;
+  --radius-pill: 1.5rem;
   --max-w-content: 70rem;
   --header-h: 5rem;
   --header-h-compact: 4.25rem;

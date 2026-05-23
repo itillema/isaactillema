@@ -44,7 +44,7 @@ export function Nav({ orientation = "horizontal" }: { orientation?: "horizontal"
         href={bio.resumeHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-accent text-accent hover:bg-accent-soft font-mono text-sm px-4 py-2 border rounded transition-colors"
+        className="border-accent text-accent hover:bg-accent-soft font-mono text-sm px-4 py-2 border rounded-(--radius-pill) transition-colors"
       >
         Resume
       </a>
