@@ -13,7 +13,12 @@ export function Experience() {
         {experience.map((job) => (
           <Row
             key={job.id}
-            eyebrow={`${job.start} — ${job.end}`}
+            eyebrow={
+              <>
+                <span className="whitespace-nowrap">{job.start} —</span>{" "}
+                <span className="whitespace-nowrap">{job.end}</span>
+              </>
+            }
             bullets={job.bullets}
             tags={job.stack}
           >
