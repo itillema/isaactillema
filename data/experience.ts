@@ -20,6 +20,7 @@ export const experience: Experience[] = [
   {
     id: "eimagine",
     company: "Eimagine Technology Group",
+    companyUrl: "https://www.eimagine.com/",
     role: "Senior Software Quality Assurance Engineer, Consultant",
     start: "May 2022",
     end: "August 2024",
@@ -36,6 +37,7 @@ export const experience: Experience[] = [
   {
     id: "rics",
     company: "RICS Software",
+    companyUrl: "https://www.ricssoftware.com/",
     role: "Quality Assurance Engineer",
     start: "August 2020",
     end: "May 2022",
