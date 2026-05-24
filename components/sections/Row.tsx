@@ -21,7 +21,7 @@ interface RowProps {
   tags?: string[];
   /** Extra row of icon-links (e.g. GitHub + live site) rendered below the description. */
   meta?: ReactNode;
-  /** When provided, replaces title/description/bullets/meta/tags in the right column. */
+  /** When provided, replaces the title/subtitle h3 block. Description, bullets, meta, and tags still render below. */
   children?: ReactNode;
 }
 
@@ -88,11 +88,12 @@ export function Row({
           </header>
         ) : null}
 
-        {/* Right column: title + body, or custom children */}
+        {/* Right column: title block + body slots */}
         <div className={cn("z-10", thumbnail ? "sm:order-2 sm:col-span-6" : "sm:col-span-6")}>
-          {children ?? (
-            <>
-              {title && (
+          {/* Title block — custom children take precedence over title/subtitle */}
+          {children
+            ? children
+            : title && (
                 <h3 className="font-medium leading-tight">
                   {href ? (
                     <ExternalLink
@@ -110,23 +111,21 @@ export function Row({
                 </h3>
               )}
 
-              {description && (
-                <p className="text-muted mt-2 text-sm leading-normal">{description}</p>
-              )}
-
-              {bullets && bullets.length > 0 && (
-                <ul className="text-muted mt-2 list-disc space-y-1 pl-5 text-sm leading-normal">
-                  {bullets.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              )}
-
-              {meta && <div className="mt-2 flex flex-wrap items-center gap-4">{meta}</div>}
-
-              {tags && tags.length > 0 && <TechTags items={tags} className="mt-2" />}
-            </>
+          {description && (
+            <p className="text-muted mt-2 text-sm leading-normal">{description}</p>
           )}
+
+          {bullets && bullets.length > 0 && (
+            <ul className="text-muted mt-2 list-disc space-y-1 pl-5 text-sm leading-normal">
+              {bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          )}
+
+          {meta && <div className="mt-2 flex flex-wrap items-center gap-4">{meta}</div>}
+
+          {tags && tags.length > 0 && <TechTags items={tags} className="mt-2" />}
         </div>
       </div>
     </li>

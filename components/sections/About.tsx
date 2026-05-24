@@ -9,10 +9,9 @@ export function About() {
     <Section id="about" title="About">
       <div className="space-y-4">
         <p>
-          Hello! I&apos;m {firstName}, a Senior Quality Engineer and Architect based in{" "}
-          {bio.location}. I&apos;ve spent the last five years in consulting leadership —
-          architecting scalable test automation, optimizing CI/CD pipelines, and leading
-          agile teams that ship software people can trust.
+          Hey there! I&apos;m {firstName}, a Senior Quality Engineer and Architect based in{" "}
+          {bio.location}.  I&apos;ve spent the last six years in engineering and consulting leadership, architecting scalable test automation, optimizing CI/CD pipelines, and elevating brand equity by leading
+          agile teams to consistently ship software people can trust.  In my personal time, you&apos;ll find me brewing and consuming an inordinate amount of espresso, cycling around the midwest, or spending quality time with my family.
         </p>
         <p>
           Today I lead the QA practice at{" "}
@@ -31,11 +30,6 @@ export function About() {
           quality into a revenue lever rather than a cost center.
         </p>
         <p>
-          On the side, I&apos;m finishing an MS in Software Engineering at DePaul
-          (graduating December 2026) and hold a stack of ISTQB certifications across test
-          management, automation engineering, and agile testing.
-        </p>
-        <p>
           You can read the long version on my{" "}
           <ExternalLink
             href={bio.resumeHref}
@@ -45,6 +39,9 @@ export function About() {
             résumé
           </ExternalLink>
           .
+        </p>
+        <p>
+          In my personal time, you&apos;ll find me brewing and consuming an inordinate amount of espresso, cycling around the midwest, or spending quality time with my family.
         </p>
       </div>
     </Section>

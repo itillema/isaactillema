@@ -8,7 +8,7 @@ export const education: Education[] = [
     degree: "Master of Science in Software Engineering",
     emphasis: "Development & Architecture",
     location: "Chicago, IL",
-    date: "Expected December 2026",
+    date: "December 2026",
   },
   {
     id: "iu-kelley",
