@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { SectionHeader } from "./SectionHeader";
 
 interface SectionProps {
   id: string;
-  /** Section label — visible on mobile as sticky header, sr-only on desktop. */
+  /** Section label — sticky header on mobile, sr-only on desktop. */
   title: string;
   children: ReactNode;
   className?: string;
@@ -11,8 +12,9 @@ interface SectionProps {
 
 /**
  * v6 section primitive. On mobile, the section title becomes a translucent
- * sticky header you see scroll past. On desktop (≥1024px), the header is
- * visually hidden — the sidebar nav is the only orientation cue.
+ * sticky header that only turns glassy once it pins to the top of the viewport.
+ * On desktop (≥1024px), the header is visually hidden — the sidebar nav is the
+ * only orientation cue.
  */
 export function Section({ id, title, children, className }: SectionProps) {
   return (
@@ -24,17 +26,7 @@ export function Section({ id, title, children, className }: SectionProps) {
         className,
       )}
     >
-      <div
-        className={cn(
-          "bg-bg/75 sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur",
-          "md:-mx-12 md:px-12",
-          "lg:relative lg:top-auto lg:mx-auto lg:w-full lg:bg-transparent lg:px-0 lg:py-0 lg:opacity-0 lg:backdrop-blur-0",
-        )}
-      >
-        <h2 className="text-text text-sm font-bold uppercase tracking-widest lg:sr-only">
-          {title}
-        </h2>
-      </div>
+      <SectionHeader title={title} />
       <div>{children}</div>
     </section>
   );
