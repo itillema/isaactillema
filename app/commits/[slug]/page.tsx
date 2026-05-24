@@ -83,10 +83,19 @@ export default async function CommitPage({
   const toc = buildToc(post.content);
 
   return (
-    <div className="lg:flex lg:justify-between lg:gap-4">
-      <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:overflow-y-auto lg:py-24">
+    <div className="lg:flex lg:justify-between lg:gap-8">
+      <aside className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/3 lg:flex-col lg:py-24">
         <BackButton />
-        <header className="mt-8 mb-8">
+        {toc.length > 0 && (
+          <div className="glass mt-8 hidden flex-1 overflow-hidden lg:flex">
+            <div className="scrollbar-thumb-only h-full w-full overflow-y-auto p-6">
+              <TableOfContents items={toc} />
+            </div>
+          </div>
+        )}
+      </aside>
+      <article className="pt-12 lg:w-2/3 lg:py-24">
+        <header className="mb-10">
           <time
             dateTime={post.date}
             className="text-muted block text-xs uppercase tracking-widest"
@@ -97,12 +106,9 @@ export default async function CommitPage({
             {post.title}
           </h1>
           {post.description && (
-            <p className="text-muted mt-4 text-base leading-normal">{post.description}</p>
+            <p className="text-muted mt-4 text-lg leading-normal">{post.description}</p>
           )}
         </header>
-        <TableOfContents items={toc} className="hidden lg:block" />
-      </aside>
-      <article className="pt-12 lg:w-[52%] lg:py-24">
         <div className="prose-invert">
           <MDXRemote
             source={post.content}
