@@ -3,7 +3,7 @@ title: "The Geography of Generosity"
 description: "A regression analysis of neighborhood socioeconomics and taxi tipping behavior in Chicago."
 date: "2025-11-19"
 tags: ["data-science", "regression", "chicago", "research"]
-ogImage: "/posts/geography/geography-bar-chart.png"
+ogImage: "/posts/geography-of-generosity/geography-bar-chart.png"
 ---
 
 ## Abstract
@@ -142,7 +142,7 @@ The `Tip_Percentage` variable contained extreme outliers (e.g., 1000%+ tips like
 
 As shown in Figure 1.1, the distribution of tip percentages was highly right-skewed, with a massive concentration at 0% and a long tail. This violates the normality assumption of Ordinary Least Squares (OLS) regression.
 
-![Figure 1.1: Histogram of Raw Tip Percentage (Skewed)](/posts/geography/histogram-raw-tip-pct.png)
+![Figure 1.1: Histogram of Raw Tip Percentage (Skewed)](/posts/geography-of-generosity/histogram-raw-tip-pct.png)
 
 To correct this, a log-transformation was applied:
 
@@ -154,7 +154,7 @@ $$
 
 As illustrated in Figure 1.2, this transformation successfully normalized the distribution, producing a bell-shaped curve suitable for linear modeling.
 
-![Figure 1.2: Histogram of Log-Transformed Tip Percentage (Normal)](/posts/geography/histogram-log-tip-pct.png)
+![Figure 1.2: Histogram of Log-Transformed Tip Percentage (Normal)](/posts/geography-of-generosity/histogram-log-tip-pct.png)
 
 #### Factorization
 
@@ -178,7 +178,7 @@ The dataset covers a wide socioeconomic spectrum, ranging from community areas w
 
 Whether wealthier neighborhoods tip more is difficult to visualize using raw data due to the sheer volume of trips (millions of points create "overplotting"). To reveal the underlying signal, the data was aggregated by *Pickup Community Area*. For each of the 77 community areas, we calculated the mean `log_Tip_Percentage` and plotted it against the `Estimated_Mean_Income`.
 
-![Figure 2.1: Scatter Plot of Average Tip vs. Neighborhood Income](/posts/geography/scatter-tip-vs-income.png)
+![Figure 2.1: Scatter Plot of Average Tip vs. Neighborhood Income](/posts/geography-of-generosity/scatter-tip-vs-income.png)
 
 **Interpretation:** The scatter plot reveals a clear, positive linear trend. As the estimated mean income of the pickup neighborhood increases (moving right on the x-axis), the average tip percentage also increases (moving up on the y-axis). The red regression line confirms this trajectory, providing strong initial visual evidence in support of Hypothesis H₁. Notably, the size of the points (representing the number of trips) indicates that while high-volume areas like the Loop drive much of the data, the relationship appears consistent across both high-traffic and low-traffic neighborhoods.
 
@@ -190,9 +190,9 @@ To isolate the effect of income, we must first understand how other factors infl
 
 Tipping norms often vary by the context of the trip (e.g., business vs. leisure). Figure 3.1 displays the volume of trips by day, while Figure 3.2 examines the distribution of tip percentages across the week.
 
-![Figure 3.1: Bar Chart of Total Trips by Day of Week](/posts/geography/bar-trips-by-day.png)
+![Figure 3.1: Bar Chart of Total Trips by Day of Week](/posts/geography-of-generosity/bar-trips-by-day.png)
 
-![Figure 3.2: Boxplot of Tip Percentage by Day of Week](/posts/geography/boxplot-tip-by-day.png)
+![Figure 3.2: Boxplot of Tip Percentage by Day of Week](/posts/geography-of-generosity/boxplot-tip-by-day.png)
 
 **Interpretation:** While trip volume (Figure 3.1) remains relatively stable, the boxplot (Figure 3.2) suggests subtle variations in the median tip percentage on Fridays and Saturdays compared to weekdays. This confirms that `Trip_Day_Of_Week` is a necessary control variable to account for the "leisure" or "nightlife" premium often associated with weekend travel.
 
@@ -200,7 +200,7 @@ Tipping norms often vary by the context of the trip (e.g., business vs. leisure)
 
 A common assumption is that the tip percentage decreases as the fare becomes very large (a "diminishing returns" effect). Figure 3.3 utilizes a 2D density heatmap to visualize the relationship between Fare and `Tip_Percentage`.
 
-![Figure 3.3: Heatmap of Tip Percentage vs. Fare](/posts/geography/heatmap-tip-vs-fare.png)
+![Figure 3.3: Heatmap of Tip Percentage vs. Fare](/posts/geography-of-generosity/heatmap-tip-vs-fare.png)
 
 **Interpretation:** The heatmap shows a dense concentration (yellow/green) around 15% tipping range for fares under $40. However, as fares increase, the variance tightens, and the distribution shifts. This non-uniform behavior confirms that Fare is not just a denominator in the calculation but an independent predictor of the rate at which passengers tip, necessitating its inclusion in the model.
 
@@ -210,7 +210,7 @@ A critical step in regression analysis is checking for multicollinearity — whe
 
 We hypothesized that *Trip Seconds* (duration) and *Fare* (cost) would be strongly correlated, as taxi meters are time-and-distance based. Figure 3.4 tests this relationship.
 
-![Figure 3.4: Scatter Plot of Fare vs. Trip Duration](/posts/geography/scatter-fare-vs-duration.png)
+![Figure 3.4: Scatter Plot of Fare vs. Trip Duration](/posts/geography-of-generosity/scatter-fare-vs-duration.png)
 
 **Interpretation:** The plot reveals a near-perfect linear relationship between trip duration and fare, which is mechanically expected in the taxi industry. In many modeling contexts, this would be a "red flag" for multicollinearity.
 
@@ -298,9 +298,9 @@ Because the dataset contains millions of records, standard diagnostic plotting i
 - **Homoscedasticity:** The *Residuals vs. Fitted Values* plot (Figure 4.1) displays a generally random "cloud" of points centered around zero. While there is some clustering due to the discrete nature of fare increments, there is no distinct "funnel shape" that would indicate heteroscedasticity. This suggests the variance of the error term is consistent across different predicted tip values.
 - **Normality of Errors:** The *Normal Q-Q Plot* (Figure 4.2) shows that the standardized residuals largely adhere to the 45-degree reference line. This confirms that the log-transformation of the target variable successfully normalized the error distribution, justifying the use of linear regression and t-tests for significance.
 
-![Figure 4.1: Residuals vs. Fitted Values Plot](/posts/geography/residuals-vs-fitted.png)
+![Figure 4.1: Residuals vs. Fitted Values Plot](/posts/geography-of-generosity/residuals-vs-fitted.png)
 
-![Figure 4.2: Normal Q-Q Plot of Residuals](/posts/geography/qq-plot.png)
+![Figure 4.2: Normal Q-Q Plot of Residuals](/posts/geography-of-generosity/qq-plot.png)
 
 ### Answering the Research Questions
 
@@ -338,7 +338,7 @@ To answer this, we calculated a *Generosity Score* (Mean Residual) for each of C
 
 The chart below visualizes the divergence between the most and least generous areas.
 
-![The Geography of Generosity Bar Chart](/posts/geography/geography-bar-chart.png)
+![The Geography of Generosity Bar Chart](/posts/geography-of-generosity/geography-bar-chart.png)
 
 #### The "Least Generous" Anomalies
 
@@ -561,7 +561,7 @@ print(tail(geo_generosity, 5))
 
 #### Figure B.4: All data sets, frames, tables, values, and objects used in the analysis
 
-![Figure B.4: R Studio environment showing all data frames and objects used in the analysis](/posts/geography/dataframes-screenshot.png)
+![Figure B.4: R Studio environment showing all data frames and objects used in the analysis](/posts/geography-of-generosity/dataframes-screenshot.png)
 
 ### Appendix C: Model Summaries
 
@@ -784,38 +784,38 @@ F-statistic: 1.301e+04 on 31 and 15774079 DF,  p-value: < 2.2e-16
 
 **Figure E.1:** Histogram of Raw Tip Percentage (Showing Skewness)
 
-![Histogram of raw tip percentage showing right skew](/posts/geography/histogram-raw-tip-pct.png)
+![Histogram of raw tip percentage showing right skew](/posts/geography-of-generosity/histogram-raw-tip-pct.png)
 
 **Figure E.2:** Histogram of Log-Transformed Tip Percentage (Normalized)
 
-![Histogram of log-transformed tip percentage showing normal distribution](/posts/geography/histogram-log-tip-pct.png)
+![Histogram of log-transformed tip percentage showing normal distribution](/posts/geography-of-generosity/histogram-log-tip-pct.png)
 
 **Figure E.3:** Scatter Plot — Average Tip Percentage vs. Estimated Neighborhood Income
 
-![Scatter plot of average tip percentage versus estimated neighborhood income](/posts/geography/scatter-tip-vs-income.png)
+![Scatter plot of average tip percentage versus estimated neighborhood income](/posts/geography-of-generosity/scatter-tip-vs-income.png)
 
 **Figure E.4:** Bar Chart — Total Trips by Day of the Week
 
-![Bar chart of total trips by day of the week](/posts/geography/bar-trips-by-day.png)
+![Bar chart of total trips by day of the week](/posts/geography-of-generosity/bar-trips-by-day.png)
 
 **Figure E.5:** Boxplot — Tip Percentage by Day of the Week
 
-![Boxplot of tip percentage by day of the week](/posts/geography/boxplot-tip-by-day.png)
+![Boxplot of tip percentage by day of the week](/posts/geography-of-generosity/boxplot-tip-by-day.png)
 
 **Figure E.6:** Heatmap — Tip Percentage vs. Fare Amount
 
-![Heatmap of tip percentage versus fare amount](/posts/geography/heatmap-tip-vs-fare.png)
+![Heatmap of tip percentage versus fare amount](/posts/geography-of-generosity/heatmap-tip-vs-fare.png)
 
 **Figure E.7:** Scatter Plot — Fare vs. Trip Duration (Multicollinearity Check)
 
-![Scatter plot of fare versus trip duration showing strong linear correlation](/posts/geography/scatter-fare-vs-duration.png)
+![Scatter plot of fare versus trip duration showing strong linear correlation](/posts/geography-of-generosity/scatter-fare-vs-duration.png)
 
 **Figure E.8:** Bar Chart — The Geography of Generosity (Residuals)
 
-![Bar chart of the geography of generosity showing top and bottom Chicago community areas by mean residual](/posts/geography/geography-bar-chart.png)
+![Bar chart of the geography of generosity showing top and bottom Chicago community areas by mean residual](/posts/geography-of-generosity/geography-bar-chart.png)
 
 ---
 
 ## Download the report
 
-<a href="/posts/geography-of-generosity.pdf" download className="inline-flex items-center text-text font-medium hover:text-accent transition-colors">Download the full PDF (42 pages) →</a>
+<a href="/posts/geography-of-generosity/The Economic Geography of Generosity.pdf" download className="inline-flex items-center text-text font-medium hover:text-accent transition-colors">Download the full PDF (42 pages) →</a>
