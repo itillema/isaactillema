@@ -1,4 +1,4 @@
-export default function BlogLayout({ children }: { children: React.ReactNode }) {
+export default function CommitsLayout({ children }: { children: React.ReactNode }) {
   return (
     <main
       id="main"

@@ -17,43 +17,37 @@ export function VersionControl() {
         A commit log of what I&apos;m learning, building, and breaking.
       </p>
 
-      {visible.length === 0 ? (
-        <p className="text-muted text-sm leading-normal">First post coming soon.</p>
-      ) : (
-        <>
-          <RowList>
-            {visible.map((post) => (
-              <Row
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                linkLabel={post.title}
-                title={post.title}
-                thumbnail={
-                  post.ogImage ? { src: post.ogImage, alt: post.title } : undefined
-                }
-                eyebrow={
-                  post.ogImage ? undefined : (
-                    <GitCommit className="text-accent h-6 w-6" aria-hidden="true" />
-                  )
-                }
-                description={post.description}
-                tags={post.tags}
-              />
-            ))}
-          </RowList>
-
-          {posts.length > POSTS_ON_HOME && (
-            <div className="mt-2">
-              <ExternalLink
-                href="/blog"
-                className="text-text inline-flex items-baseline font-medium"
-              >
-                Read all posts
-              </ExternalLink>
-            </div>
-          )}
-        </>
+      {visible.length > 0 && (
+        <RowList>
+          {visible.map((post) => (
+            <Row
+              key={post.slug}
+              href={`/commits/${post.slug}`}
+              linkLabel={post.title}
+              title={post.title}
+              thumbnail={
+                post.ogImage ? { src: post.ogImage, alt: post.title } : undefined
+              }
+              eyebrow={
+                post.ogImage ? undefined : (
+                  <GitCommit className="text-accent h-6 w-6" aria-hidden="true" />
+                )
+              }
+              description={post.description}
+              tags={post.tags}
+            />
+          ))}
+        </RowList>
       )}
+
+      <div className={visible.length > 0 ? "mt-2" : undefined}>
+        <ExternalLink
+          href="/commits"
+          className="text-text inline-flex items-baseline font-medium"
+        >
+          View all commits
+        </ExternalLink>
+      </div>
     </Section>
   );
 }

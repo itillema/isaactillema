@@ -32,7 +32,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({
+export default async function CommitPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -44,15 +44,12 @@ export default async function BlogPostPage({
   return (
     <article className="mx-auto max-w-2xl py-(--space-section)">
       <header className="mb-10">
-        <time
-          dateTime={post.date}
-          className="text-muted block font-mono text-xs"
-        >
+        <time dateTime={post.date} className="text-muted block text-xs uppercase tracking-widest">
           {post.date}
         </time>
-        <h1 className="text-text mt-3 text-4xl font-bold">{post.title}</h1>
+        <h1 className="text-text mt-3 text-4xl font-bold tracking-tight">{post.title}</h1>
         {post.description && (
-          <p className="text-muted mt-3 text-lg">{post.description}</p>
+          <p className="text-muted mt-3 text-lg leading-normal">{post.description}</p>
         )}
       </header>
       <div className="prose-invert">
