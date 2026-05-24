@@ -19,7 +19,7 @@ export default function CommitsIndex() {
   const posts = getAllPosts();
 
   return (
-    <div>
+    <div className="lg:py-24">
       <Link
         href="/"
         className="text-accent group inline-flex items-center text-sm font-medium"
