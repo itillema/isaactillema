@@ -30,12 +30,7 @@ export function Education() {
           );
         })}
         {certEntries.length > 0 && (
-          <Row
-            eyebrow="Active"
-            title="Certifications"
-            description="Industry credentials across test management, automation engineering, agile testing, and Azure development."
-            tags={certEntries}
-          />
+          <Row eyebrow="Certifications" tags={certEntries} />
         )}
       </RowList>
     </Section>

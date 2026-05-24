@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 interface RowProps {
   /** When set, the title becomes a link to this URL. */
   href?: string;
-  title: ReactNode;
+  title?: ReactNode;
   /** Plain-text title used for the `aria-label` of the link. Defaults to `title` if it's a string. */
   linkLabel?: string;
   subtitle?: ReactNode;
@@ -55,17 +55,16 @@ export function Row({
         className={cn(
           "group relative grid pb-1 transition-all",
           "sm:grid-cols-8 sm:gap-8 md:gap-4",
-          "lg:hover:!opacity-100 lg:group-hover/list:opacity-50",
+          "lg:hover:opacity-100! lg:group-hover/list:opacity-50",
         )}
       >
         {/* Hover lift — glass card with cyan glow */}
         <div
           aria-hidden="true"
           className={cn(
-            "absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none",
+            "absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-3xl transition motion-reduce:transition-none",
             "lg:-inset-x-6 lg:block",
             "lg:group-hover:bg-glass lg:group-hover:backdrop-blur-md",
-            "lg:group-hover:shadow-[inset_0_1px_0_0_var(--color-border-hover),var(--shadow-glow)]",
           )}
         />
 
@@ -88,21 +87,23 @@ export function Row({
 
         {/* Right column: title + body */}
         <div className={cn("z-10", thumbnail ? "sm:order-2 sm:col-span-6" : "sm:col-span-6")}>
-          <h3 className="font-medium leading-tight">
-            {href ? (
-              <ExternalLink
-                href={href}
-                label={label}
-                className="text-text inline-flex items-baseline text-base"
-              >
-                {titleContent}
-              </ExternalLink>
-            ) : (
-              <span className="text-text inline-flex items-baseline text-base">
-                {titleContent}
-              </span>
-            )}
-          </h3>
+          {title && (
+            <h3 className="font-medium leading-tight">
+              {href ? (
+                <ExternalLink
+                  href={href}
+                  label={label}
+                  className="text-text inline-flex items-baseline text-base"
+                >
+                  {titleContent}
+                </ExternalLink>
+              ) : (
+                <span className="text-text inline-flex items-baseline text-base">
+                  {titleContent}
+                </span>
+              )}
+            </h3>
+          )}
 
           {description && (
             <p className="text-muted mt-2 text-sm leading-normal">{description}</p>
