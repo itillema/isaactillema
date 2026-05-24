@@ -130,6 +130,17 @@ export function ContactForm() {
         )}
       </div>
 
+      <label className="text-muted flex cursor-pointer items-start gap-3 text-sm leading-snug">
+        <input
+          type="checkbox"
+          name="optIn"
+          value="yes"
+          disabled={pending}
+          className="accent-accent mt-0.5 h-4 w-4 shrink-0 cursor-pointer"
+        />
+        <span>Keep me posted with occasional updates. Unsubscribe any time.</span>
+      </label>
+
       {state.errors?.form && (
         <p role="alert" className="text-sm text-rose-300">
           {state.errors.form}

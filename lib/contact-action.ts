@@ -49,6 +49,7 @@ export async function sendContactMessage(
     subject: String(formData.get("subject") ?? "").trim(),
     message: String(formData.get("message") ?? "").trim(),
   };
+  const optIn = String(formData.get("optIn") ?? "") === "yes";
 
   const errors = validate(input);
   if (errors) return { ok: false, errors };
@@ -83,6 +84,23 @@ export async function sendContactMessage(
           form: "Couldn't send your message. Please try again in a moment.",
         },
       };
+    }
+
+    // Best-effort audience add — never blocks the form response.
+    if (optIn && process.env.RESEND_AUDIENCE_ID) {
+      const [firstName, ...rest] = input.name.split(/\s+/);
+      try {
+        await resend.contacts.create({
+          email: input.email,
+          firstName,
+          lastName: rest.join(" ") || undefined,
+          audienceId: process.env.RESEND_AUDIENCE_ID,
+          unsubscribed: false,
+        });
+      } catch (err) {
+        // Duplicates and API hiccups shouldn't penalize the user. Log and move on.
+        console.error("Audience add failed:", err);
+      }
     }
 
     return { ok: true };
