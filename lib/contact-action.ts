@@ -1,7 +1,6 @@
 "use server";
 
 import { Resend } from "resend";
-import { bio } from "@/data/bio";
 
 export interface ContactFormState {
   ok: boolean;
@@ -54,11 +53,12 @@ export async function sendContactMessage(
   const errors = validate(input);
   if (errors) return { ok: false, errors };
 
-  if (!process.env.RESEND_API_KEY) {
+  const toAddress = process.env.CONTACT_TO_EMAIL;
+  if (!process.env.RESEND_API_KEY || !toAddress) {
     return {
       ok: false,
       errors: {
-        form: "Email service isn't configured yet. Please reach me at " + bio.email + " directly.",
+        form: "The contact form isn't fully configured yet. Please try again later or reach out via LinkedIn.",
       },
     };
   }
@@ -69,7 +69,7 @@ export async function sendContactMessage(
   try {
     const result = await resend.emails.send({
       from: fromAddress,
-      to: bio.email,
+      to: toAddress,
       subject: `[Portfolio] ${input.subject}`,
       replyTo: input.email,
       text: `From: ${input.name} <${input.email}>\n\n${input.message}`,
@@ -80,7 +80,7 @@ export async function sendContactMessage(
       return {
         ok: false,
         errors: {
-          form: "Couldn't send your message. Please try again or email me directly at " + bio.email + ".",
+          form: "Couldn't send your message. Please try again in a moment.",
         },
       };
     }
@@ -91,7 +91,7 @@ export async function sendContactMessage(
     return {
       ok: false,
       errors: {
-        form: "Something went wrong on our end. Please try again, or email me directly at " + bio.email + ".",
+        form: "Something went wrong on our end. Please try again in a moment.",
       },
     };
   }

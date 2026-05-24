@@ -5,7 +5,6 @@ export interface Bio {
   tagline: string;
   location: string;
   intro: string;
-  email: string;
   resumeHref: string;
 }
 
