@@ -1,0 +1,22 @@
+---
+title: "isaactillema.com"
+description: "This site. Next.js + Tailwind v4, hosted on Vercel. Sticky-sidebar layout with a glassmorphic cyan identity."
+tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"]
+github: "https://github.com/itillema/isaactillema"
+external: "https://isaactillema.com"
+---
+
+## Overview
+
+The site you're reading. A personal portfolio + writing space built on Next.js 15 (App Router) and Tailwind CSS v4, deployed on Vercel.
+
+## What's here
+
+- **Sticky-sidebar layout** with a scroll-spy nav, glass row-hover cards, and an opt-in cyan accent gradient.
+- **Version Control** (this section's commit log) — MDX posts with KaTeX math, syntax-highlighted code, and a downloadable PDF for long-form pieces.
+- **Projects** — same MDX-driven pattern, the page you're on now.
+- **Contact form** that submits via a Next.js server action through Resend, with an opt-in checkbox that adds submitters to a Resend audience.
+
+## What I learned
+
+Tailwind v4's CSS-first `@theme` approach for design tokens is genuinely nicer than the v3 config-file workflow once you commit to it. The MDX + rehype plugin pipeline is composable in a satisfying way — drop in `remark-math` + `rehype-katex` and equations Just Work, drop in `rehype-pretty-code` and code blocks get syntax highlighting at build time, no client-side highlighter shipped.

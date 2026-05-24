@@ -1,0 +1,18 @@
+---
+title: "Pipeline Reporter"
+description: "Sample filler — small CLI that pulls Playwright run artifacts out of Azure DevOps and renders a per-suite dashboard with flake scores and trend lines."
+tech: ["Node", "TypeScript", "Azure DevOps API"]
+github: "https://github.com/itillema"
+---
+
+## Overview
+
+A detailed write-up of this tool is in progress.
+
+## What it does
+
+Pulls Playwright run artifacts out of Azure DevOps via their REST API, parses the `results.json` and trace files, and renders a per-suite dashboard with flake scores and trend lines.
+
+## Why it exists
+
+Azure DevOps's built-in test report views are fine for a single run, but they don't give you a clean view of flake patterns over time. The reporter fills that gap with a focused CLI workflow.

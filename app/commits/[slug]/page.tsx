@@ -9,11 +9,11 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import GithubSlugger from "github-slugger";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
+import { buildToc } from "@/lib/toc";
 import { mdxComponents } from "@/components/blog/MDXComponents";
 import { BackButton } from "@/components/blog/BackButton";
-import { TableOfContents, type TocItem } from "@/components/blog/TableOfContents";
+import { TableOfContents } from "@/components/blog/TableOfContents";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -37,38 +37,6 @@ export async function generateMetadata({
       publishedTime: post.date,
     },
   };
-}
-
-/**
- * Extracts ## and ### headings from the MDX source for the table of contents.
- * Skips headings inside fenced code blocks so R-script comments like `# ...`
- * aren't mistaken for section headers. Uses the same slugger as rehype-slug
- * so anchor links match the rendered heading IDs.
- */
-function buildToc(markdown: string): TocItem[] {
-  const slugger = new GithubSlugger();
-  const items: TocItem[] = [];
-  let inFence = false;
-
-  for (const line of markdown.split("\n")) {
-    if (line.startsWith("```")) {
-      inFence = !inFence;
-      continue;
-    }
-    if (inFence) continue;
-
-    const match = line.match(/^(#{2,3})\s+(.+?)\s*$/);
-    if (!match) continue;
-    const depth = match[1].length as 2 | 3;
-    const rawText = match[2]
-      .replace(/`([^`]+)`/g, "$1") // strip inline code backticks
-      .replace(/\*\*([^*]+)\*\*/g, "$1") // strip bold
-      .replace(/\*([^*]+)\*/g, "$1") // strip italics
-      .replace(/&amp;/g, "&"); // normalize HTML entity
-    items.push({ depth, text: rawText, slug: slugger.slug(rawText) });
-  }
-
-  return items;
 }
 
 export default async function CommitPage({

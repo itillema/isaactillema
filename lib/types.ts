@@ -32,8 +32,8 @@ export interface Experience {
   stack?: string[];
 }
 
-export interface Project {
-  id: string;
+export interface ProjectMeta {
+  slug: string;
   title: string;
   description: string;
   tech: string[];
@@ -43,11 +43,21 @@ export interface Project {
     src: string;
     alt: string;
   };
+  /** Background image used by the archive card + social-share preview. */
+  ogImage?: string;
+  /** ISO date — drives sort order for non-featured projects. */
+  date?: string;
+  /** Pins to top of lists; honored before non-featured items. */
+  featured?: boolean;
+  /** Sort key within featured projects (lower = first). */
+  order?: number;
+  /** Bulleted highlights rendered above the MDX body. */
+  highlights?: string[];
+  draft?: boolean;
 }
 
-export interface FeaturedProject extends Project {
-  highlights?: string[];
-  order: number;
+export interface ProjectFull extends ProjectMeta {
+  content: string;
 }
 
 export interface SkillGroup {

@@ -1,10 +1,5 @@
 import { cn } from "@/lib/cn";
-
-export interface TocItem {
-  depth: 2 | 3;
-  text: string;
-  slug: string;
-}
+import type { TocItem } from "@/lib/toc";
 
 interface TableOfContentsProps {
   items: TocItem[];
