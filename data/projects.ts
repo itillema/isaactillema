@@ -19,7 +19,7 @@ export const otherProjects: Project[] = [
     id: "isaactillema-com",
     title: "isaactillema.com",
     description:
-      "This site. Next.js + Tailwind v4, hosted on Vercel. Sticky-sidebar layout inspired by brittanychiang.com with a glassmorphic cyan identity.",
+      "Personal portfolio and blog site created by Isaac Tillema. Created with Next.js + Tailwind v4.",
     tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     github: "https://github.com/itillema/isaactillema",
     external: "https://isaactillema.com",
