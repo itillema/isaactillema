@@ -1,5 +1,4 @@
 import { bio } from "@/data/bio";
-import { ExternalLink } from "@/components/ui/ExternalLink";
 
 export function Footer() {
   return (
