@@ -14,7 +14,7 @@ export function VersionControl() {
   return (
     <Section id="version-control" title="Version Control">
       <p className="text-muted mb-6 text-sm leading-normal">
-        A commit log of what I&apos;m learning, building, and breaking.
+        A commit log of what I&apos;m learning, building, and breaking - And anything else on my mind.
       </p>
 
       {visible.length > 0 && (
