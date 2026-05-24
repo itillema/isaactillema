@@ -1,10 +1,14 @@
+import "katex/dist/katex.min.css";
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import { mdxComponents } from "@/components/blog/MDXComponents";
 import { BackButton } from "@/components/blog/BackButton";
@@ -60,10 +64,11 @@ export default async function CommitPage({
           components={mdxComponents}
           options={{
             mdxOptions: {
-              remarkPlugins: [remarkGfm],
+              remarkPlugins: [remarkGfm, remarkMath],
               rehypePlugins: [
                 rehypeSlug,
                 [rehypeAutolinkHeadings, { behavior: "wrap" }],
+                rehypeKatex,
                 [rehypePrettyCode, { theme: "github-dark" }],
               ],
             },
