@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import { mdxComponents } from "@/components/blog/MDXComponents";
+import { BackButton } from "@/components/blog/BackButton";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -42,8 +43,9 @@ export default async function CommitPage({
   if (!post) notFound();
 
   return (
-    <article className="mx-auto max-w-2xl py-(--space-section)">
-      <header className="mb-10">
+    <article className="mx-auto max-w-2xl">
+      <BackButton />
+      <header className="mt-8 mb-10">
         <time dateTime={post.date} className="text-muted block text-xs uppercase tracking-widest">
           {post.date}
         </time>
