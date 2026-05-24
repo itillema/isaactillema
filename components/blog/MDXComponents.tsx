@@ -32,7 +32,7 @@ export const mdxComponents: MDXComponents = {
   ),
   pre: (props) => (
     <pre
-      className="bg-surface border-border my-6 overflow-x-auto rounded border p-4 text-sm"
+      className="bg-surface border-border my-6 overflow-x-auto rounded border p-4 text-left text-sm"
       {...props}
     />
   ),
@@ -74,7 +74,7 @@ export const mdxComponents: MDXComponents = {
       {...props}
     />
   ),
-  figure: (props) => <figure className="my-6 text-center" {...props} />,
+  figure: (props) => <figure className="my-6" {...props} />,
   figcaption: (props) => (
     <figcaption className="text-muted mt-2 text-xs italic" {...props} />
   ),
