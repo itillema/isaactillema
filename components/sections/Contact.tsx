@@ -1,24 +1,18 @@
-import { bio } from "@/data/bio";
 import { Section } from "./Section";
-import { ExternalLink } from "@/components/ui/ExternalLink";
+import { ContactForm } from "@/components/ContactForm";
 
 export function Contact() {
   return (
     <Section id="contact" title="Contact">
-      <p>
-        Open to consulting engagements, technical leadership conversations, and
-        connections with engineers who care about quality. My inbox is always open — drop
-        a line at{" "}
-        <ExternalLink
-          href={`mailto:${bio.email}`}
-          label={bio.email}
-          className="text-text font-medium"
-          showArrow={false}
-        >
-          {bio.email}
-        </ExternalLink>{" "}
-        and I&apos;ll get back to you.
-      </p>
+      <div className="bg-glass rounded-3xl p-6 backdrop-blur-md md:p-8">
+        <h3 className="text-text text-lg font-medium leading-tight">Get in touch</h3>
+        <p className="text-muted mt-2 text-sm leading-normal">
+          Open to consulting engagements, technical leadership conversations, and
+          connections with engineers who care about quality. Drop a note and I&apos;ll
+          get back to you.
+        </p>
+        <ContactForm />
+      </div>
     </Section>
   );
 }
