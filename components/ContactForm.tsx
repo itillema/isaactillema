@@ -8,7 +8,7 @@ const initial: ContactFormState = { ok: false };
 
 const inputClass = cn(
   "bg-bg/60 text-text placeholder:text-muted/70",
-  "w-full rounded-lg px-3 py-2 text-sm leading-normal",
+  "w-full rounded-3xl px-5 py-2.5 text-sm leading-normal",
   "outline-none transition-colors",
   "ring-1 ring-inset ring-white/5 focus:ring-2 focus:ring-accent",
   "disabled:cursor-not-allowed disabled:opacity-60",
