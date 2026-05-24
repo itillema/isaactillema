@@ -21,6 +21,8 @@ interface RowProps {
   tags?: string[];
   /** Extra row of icon-links (e.g. GitHub + live site) rendered below the description. */
   meta?: ReactNode;
+  /** When provided, replaces title/description/bullets/meta/tags in the right column. */
+  children?: ReactNode;
 }
 
 export function Row({
@@ -34,6 +36,7 @@ export function Row({
   bullets,
   tags,
   meta,
+  children,
 }: RowProps) {
   const label = linkLabel ?? (typeof title === "string" ? title : undefined);
 
@@ -85,41 +88,45 @@ export function Row({
           </header>
         ) : null}
 
-        {/* Right column: title + body */}
+        {/* Right column: title + body, or custom children */}
         <div className={cn("z-10", thumbnail ? "sm:order-2 sm:col-span-6" : "sm:col-span-6")}>
-          {title && (
-            <h3 className="font-medium leading-tight">
-              {href ? (
-                <ExternalLink
-                  href={href}
-                  label={label}
-                  className="text-text inline-flex items-baseline text-base"
-                >
-                  {titleContent}
-                </ExternalLink>
-              ) : (
-                <span className="text-text inline-flex items-baseline text-base">
-                  {titleContent}
-                </span>
+          {children ?? (
+            <>
+              {title && (
+                <h3 className="font-medium leading-tight">
+                  {href ? (
+                    <ExternalLink
+                      href={href}
+                      label={label}
+                      className="text-text inline-flex items-baseline text-base"
+                    >
+                      {titleContent}
+                    </ExternalLink>
+                  ) : (
+                    <span className="text-text inline-flex items-baseline text-base">
+                      {titleContent}
+                    </span>
+                  )}
+                </h3>
               )}
-            </h3>
+
+              {description && (
+                <p className="text-muted mt-2 text-sm leading-normal">{description}</p>
+              )}
+
+              {bullets && bullets.length > 0 && (
+                <ul className="text-muted mt-2 list-disc space-y-1 pl-5 text-sm leading-normal">
+                  {bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              )}
+
+              {meta && <div className="mt-2 flex flex-wrap items-center gap-4">{meta}</div>}
+
+              {tags && tags.length > 0 && <TechTags items={tags} className="mt-2" />}
+            </>
           )}
-
-          {description && (
-            <p className="text-muted mt-2 text-sm leading-normal">{description}</p>
-          )}
-
-          {bullets && bullets.length > 0 && (
-            <ul className="text-muted mt-2 list-disc space-y-1 pl-5 text-sm leading-normal">
-              {bullets.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-          )}
-
-          {meta && <div className="mt-2 flex flex-wrap items-center gap-4">{meta}</div>}
-
-          {tags && tags.length > 0 && <TechTags items={tags} className="mt-2" />}
         </div>
       </div>
     </li>
