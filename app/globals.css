@@ -5,7 +5,6 @@
   --color-bg: var(--color-bg);
   --color-surface: var(--color-surface);
   --color-glass: var(--color-glass);
-  --color-glass-strong: var(--color-glass-strong);
 
   --color-text: var(--color-text);
   --color-text-soft: var(--color-text-soft);
@@ -27,7 +26,6 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-display: var(--font-display);
 }
 
 @layer base {
@@ -38,6 +36,11 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    color: var(--color-muted);
+    line-height: 1.625;
   }
 
   /* Subtle SVG grain overlay — sits above ambient gradient, below content */
@@ -72,7 +75,6 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-h);
   }
 
   ::selection {
@@ -82,7 +84,9 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Glass surface utilities                                            */
+/* Glass surface utility — retained for ad-hoc glass cards.           */
+/* The row-hover lift uses bg-glass + backdrop-blur-md utilities      */
+/* directly instead of this class.                                    */
 /* ------------------------------------------------------------------ */
 
 @layer components {
@@ -96,42 +100,9 @@
     transition: border-color 200ms ease, box-shadow 200ms ease;
   }
 
-  .glass-strong {
-    background: var(--color-glass-strong);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border-bottom: 1px solid var(--color-border);
-  }
-
   .glass:hover,
   .glass:focus-within {
-    border-color: transparent;
+    border-color: var(--color-border-hover);
     box-shadow: var(--shadow-glow);
-  }
-
-  /* Gradient stroke on hover/focus via masked pseudo-element */
-  .glass::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: var(--gradient-accent);
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 200ms ease;
-  }
-
-  .glass:hover::before,
-  .glass:focus-within::before {
-    opacity: 1;
   }
 }

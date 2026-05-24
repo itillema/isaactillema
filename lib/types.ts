@@ -1,6 +1,8 @@
 export interface Bio {
   name: string;
   role: string;
+  /** Short one-line summary shown under the role in the sidebar hero. */
+  tagline: string;
   location: string;
   intro: string;
   email: string;

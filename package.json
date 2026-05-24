@@ -14,8 +14,6 @@
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.18.2",
-    "geist": "^1.7.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.469.0",
     "next": "^15.1.6",

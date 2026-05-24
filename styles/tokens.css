@@ -11,7 +11,6 @@
   --color-bg: hsl(225 32% 5%);
   --color-surface: hsl(225 25% 9%);
   --color-glass: hsl(225 30% 12% / 0.55);
-  --color-glass-strong: hsl(225 30% 14% / 0.7);
 
   /* Text */
   --color-text: hsl(220 20% 96%);
@@ -40,10 +39,12 @@
   --shadow-card: 0 10px 30px -15px hsl(225 50% 2% / 0.7);
   --shadow-glow: 0 0 40px hsl(190 95% 65% / 0.18);
 
-  /* Typography (next/font sets --font-geist-*; these are fallbacks) */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  --font-display: var(--font-sans);
+  /* Cursor spotlight — cyan accent at 10% opacity */
+  --color-spotlight: hsl(190 95% 65% / 0.10);
+
+  /* Typography — Inter is loaded via next/font in app/layout.tsx as --font-inter */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   /* Type scale */
   --fs-xs: 0.75rem;
@@ -54,16 +55,8 @@
   --fs-2xl: 1.5rem;
   --fs-3xl: 2rem;
   --fs-4xl: 2.5rem;
-  --fs-display: clamp(2.75rem, 9vw, 5.5rem);
-
-  /* Spacing */
-  --space-section: clamp(5rem, 11vw, 7rem);
-  --space-rail: 2.5rem;
 
   /* Shape & layout */
   --radius: 0.75rem;
   --radius-pill: 2rem;
-  --max-w-content: 70rem;
-  --header-h: 5rem;
-  --header-h-compact: 4.25rem;
 }
