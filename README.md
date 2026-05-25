@@ -1,6 +1,6 @@
 # isaactillema.com
 
-Personal portfolio and writing space for Isaac Tillema — Senior Engineer, Architect, and Founder.
+Personal portfolio and writing space for Isaac Tillema.
 
 ## Stack
 
