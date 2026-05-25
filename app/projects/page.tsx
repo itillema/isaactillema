@@ -35,12 +35,12 @@ export default function ProjectsIndex() {
         Projects
       </h1>
       <p className="text-muted mt-6 max-w-2xl text-lg leading-normal">
-        Selected engagements and side work — featured items pinned to the top.
+        Some of my work.
       </p>
 
       <div className="mt-12 md:mt-16">
         {projects.length === 0 ? (
-          <p className="text-muted text-sm leading-normal">First project coming soon.</p>
+          <p className="text-muted text-sm leading-normal">Projects coming soon.</p>
         ) : (
           <div className="grid grid-cols-1 gap-4 md:auto-rows-[20rem] md:grid-cols-3 md:gap-6">
             {projects.map((project, i) => (

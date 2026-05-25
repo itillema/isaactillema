@@ -11,9 +11,7 @@ interface ProjectCardProps {
 }
 
 /**
- * Card for the /projects archive. The project's ogImage (or image.src) fills
- * the card as a background, with a bottom-to-top gradient overlay for text
- * legibility. Falls back to a glass panel + Folder icon when no image exists.
+ * The project's ogImage (or image.src) fills the card as a background, with a bottom-to-top gradient overlay for text legibility. Falls back to a glass panel + Folder icon when no image exists.
  */
 export function ProjectCard({ project, variant = "normal" }: ProjectCardProps) {
   const isLarge = variant === "large";

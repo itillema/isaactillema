@@ -61,7 +61,7 @@ export default async function ProjectPage({
         {toc.length > 0 && (
           <div className="glass mt-8 hidden flex-1 overflow-hidden lg:flex">
             <div className="scrollbar-thumb-only h-full w-full overflow-y-auto p-6">
-              <TableOfContents items={toc} />
+              <TableOfContents items={toc} label="In This Project" />
             </div>
           </div>
         )}

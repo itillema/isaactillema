@@ -4,14 +4,19 @@ import type { TocItem } from "@/lib/toc";
 interface TableOfContentsProps {
   items: TocItem[];
   className?: string;
+  label?: string;
 }
 
-export function TableOfContents({ items, className }: TableOfContentsProps) {
+export function TableOfContents({
+  items,
+  className,
+  label = "In This Commit",
+}: TableOfContentsProps) {
   if (items.length === 0) return null;
   return (
     <nav aria-label="Table of contents" className={cn("text-sm", className)}>
       <p className="text-muted text-xs font-semibold uppercase tracking-widest">
-        In This Commit
+        {label}
       </p>
       <ol className="mt-4 space-y-2">
         {items.map((item) => (
