@@ -11,7 +11,7 @@ export function About() {
         <p>
           Hey there! I&apos;m {firstName}, a Senior Quality Engineer and Architect based in{" "}
           {bio.location}.  I&apos;ve spent the last six years in engineering and consulting leadership, architecting scalable test automation, optimizing CI/CD pipelines, and elevating brand equity by leading
-          agile teams to consistently ship software people can trust.  In my personal time, you&apos;ll find me brewing and consuming an inordinate amount of espresso, cycling around the midwest, or spending quality time with my family.
+          agile teams to consistently ship software people can trust.
         </p>
         <p>
           Today I lead the QA practice at{" "}
